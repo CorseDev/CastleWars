@@ -12,7 +12,7 @@ import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 import org.bukkit.scoreboard.Team;
 
-public class TeamExecutor implements Listener, CommandExecutor {
+public class TeamExecutor implements CommandExecutor {
 
 	ScoreboardManager manager = Bukkit.getScoreboardManager();
 	Scoreboard board = manager.getNewScoreboard();
@@ -21,42 +21,30 @@ public class TeamExecutor implements Listener, CommandExecutor {
 	Objective kills = board.registerNewObjective("Kills", "totalKillCount");
 	Objective deaths = board.registerNewObjective("Deaths", "totalKillCount");
 
-	public boolean onCommand(CommandSender sender, Command cmd, String label,
-			String[] args) {
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		Player p = (Player) sender;
-
-		if ((sender instanceof Player) && cmd.equals("join")) {
-
+		//fuck checking for console sender, swag
+		if (cmd.equals("join")) {
 			if (blue.getSize() < red.getSize()) {
 				blue.addPlayer(p);
-
 				if (blue.hasPlayer(p)) {
-					p.sendMessage(ChatColor.GOLD + "You joined "
-							+ ChatColor.BLUE + "Blue");
+					p.sendMessage(ChatColor.GOLD + "You joined " + ChatColor.BLUE + "Blue");
 					Bukkit.getServer().broadcastMessage(ChatColor.GOLD + sender.getName() + "joined " + ChatColor.BLUE + "Blue");
 					return true;
 				}
 			}
-
+				//y spc like poohead
 			if (red.getSize() < blue.getSize()) {
 				red.addPlayer(p);
-
 				if (red.hasPlayer(p)) {
-					p.sendMessage(ChatColor.GOLD + "You joined "
-							+ ChatColor.RED + "Red");
+					p.sendMessage(ChatColor.GOLD + "You joined " + ChatColor.RED + "Red");
 					Bukkit.getServer().broadcastMessage(ChatColor.GOLD + sender.getName() + "joined " + ChatColor.RED + "Red");
-					return true;
+						return true;
+					}
 				}
-
+				return true; // swag
 			}
-			return true; // swag
-		} else {
-			if(!(sender instanceof Player)) {
-				p.sendMessage(ChatColor.RED + "Error: " + ChatColor.DARK_RED + "You must be a player to use this command.");
-				return true;	
-			}
-			
+			return false;
 		}
-		return false;
 	}
 }
