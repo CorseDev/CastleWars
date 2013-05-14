@@ -1,0 +1,9 @@
+name: CastleWars
+main: org.mcdynasty.castlewars.CastleWars
+description: A Fun mini-game, inspired by RuneScape.
+author: PixelCrumbs
+version: 1.0
+commands:
+   Join:
+      description: Join a team.
+      usage: /<command>
