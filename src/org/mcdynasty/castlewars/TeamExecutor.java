@@ -12,7 +12,7 @@ import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 import org.bukkit.scoreboard.Team;
 
-public class TeamExecutor implements CommandExecutor {
+public class TeamExecutor implements CommandExecutor, Listener {
 
 	ScoreboardManager manager = Bukkit.getScoreboardManager();
 	Scoreboard board = manager.getNewScoreboard();
@@ -40,11 +40,10 @@ public class TeamExecutor implements CommandExecutor {
 					p.sendMessage(ChatColor.GOLD + "You joined " + ChatColor.RED + "Red");
 					Bukkit.getServer().broadcastMessage(ChatColor.GOLD + sender.getName() + "joined " + ChatColor.RED + "Red");
 						return true;
-					}
 				}
 				return true; // swag
 			}
-			return false;
 		}
+		return false;
 	}
 }
