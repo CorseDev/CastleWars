@@ -49,13 +49,13 @@ public class TeamExecutor implements Listener, CommandExecutor {
 				}
 
 			}
-
+			return true; // swag
 		} else {
 			if(!(sender instanceof Player)) {
 				p.sendMessage(ChatColor.RED + "Error: " + ChatColor.DARK_RED + "You must be a player to use this command.");
-				return true;
-				
+				return true;	
 			}
+			
 		}
 		return false;
 	}
