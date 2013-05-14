@@ -43,6 +43,7 @@ public class TeamExecutor implements CommandExecutor, Listener {
 				}
 				return true; // swag
 			}
+			return true; //fak
 		}
 		return false;
 	}
