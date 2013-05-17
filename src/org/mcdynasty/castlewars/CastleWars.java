@@ -15,5 +15,5 @@ public class CastleWars extends JavaPlugin implements Listener {
 	public void onDisable() {
 		
 	}
-
+	
 }

@@ -21,29 +21,35 @@ public class TeamExecutor implements CommandExecutor, Listener {
 	Objective kills = board.registerNewObjective("Kills", "totalKillCount");
 	Objective deaths = board.registerNewObjective("Deaths", "totalKillCount");
 
-	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+	public boolean onCommand(CommandSender sender, Command cmd, String label,
+			String[] args) {
 		Player p = (Player) sender;
-		//fuck checking for console sender, swag
-		if (cmd.equals("join")) {
+		// fuck checking for console sender, swag
+		if (cmd.getLabel().equals("join")) {
 			if (blue.getSize() < red.getSize()) {
 				blue.addPlayer(p);
 				if (blue.hasPlayer(p)) {
-					p.sendMessage(ChatColor.GOLD + "You joined " + ChatColor.BLUE + "Blue");
-					Bukkit.getServer().broadcastMessage(ChatColor.GOLD + sender.getName() + "joined " + ChatColor.BLUE + "Blue");
+					p.sendMessage(ChatColor.GOLD + "You joined "
+							+ ChatColor.BLUE + "Blue");
+					Bukkit.getServer().broadcastMessage(
+							ChatColor.GOLD + sender.getName() + "joined "
+									+ ChatColor.BLUE + "Blue");
 					return true;
 				}
 			}
-				//y spc like poohead
+			// y spc like poohead
 			if (red.getSize() < blue.getSize()) {
 				red.addPlayer(p);
 				if (red.hasPlayer(p)) {
-					p.sendMessage(ChatColor.GOLD + "You joined " + ChatColor.RED + "Red");
-					Bukkit.getServer().broadcastMessage(ChatColor.GOLD + sender.getName() + "joined " + ChatColor.RED + "Red");
-						return true;
+					p.sendMessage(ChatColor.GOLD + "You joined "
+							+ ChatColor.RED + "Red");
+					Bukkit.getServer().broadcastMessage(
+							ChatColor.GOLD + sender.getName() + "joined "
+									+ ChatColor.RED + "Red");
 				}
 				return true; // swag
 			}
-			return true; //fak
+			return true; // fak
 		}
 		return false;
 	}
