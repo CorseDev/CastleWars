@@ -6,7 +6,7 @@ version: 1.0
 commands:
    join:
       description: Join a team.
-      usage: Use /help for a list of valid commands.
+      # removed the usage section - it'll only cause you problems in the long run.
    info:
       description: Join a team.
-      usage: /<command>
+      # same thing here.
