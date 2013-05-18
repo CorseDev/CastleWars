@@ -4,6 +4,9 @@ description: A Fun mini-game, inspired by RuneScape.
 author: PixelCrumbs
 version: 1.0
 commands:
-   Castle:
+   join:
+      description: Join a team.
+      usage: Use /help for a list of valid commands.
+   info:
       description: Join a team.
       usage: /<command>
